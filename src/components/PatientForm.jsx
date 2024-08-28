@@ -15,7 +15,6 @@ const PatientForm = ({ onSave }) => {
     currentMeds: '',
     previousMeds: '',
     visits: '',
-    idNumber: '',
     fileNumber: '',
     nextOfKin: '',
     emergencyContacts: '',
@@ -48,10 +47,9 @@ const PatientForm = ({ onSave }) => {
   };
 
   return (
-    <>
-      <h1>Patient file.</h1>
-      <form onSubmit={handleSubmit}>
-        {/* Add form fields here */}
+    <div className="container">
+      <h1>Patient File</h1>
+      <form className="login-form" onSubmit={handleSubmit}>
         <input type="text" name="id" value={formData.id} onChange={handleChange} placeholder="ID" />
         <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" />
         <input type="text" name="surname" value={formData.surname} onChange={handleChange} placeholder="Surname" />
@@ -68,7 +66,7 @@ const PatientForm = ({ onSave }) => {
         <input type="text" name="emergencyContacts" value={formData.emergencyContacts} onChange={handleChange} placeholder="Emergency Contacts" />
         <button type="submit">Save</button>
       </form>
-    </>
+    </div>
   );
 };
 
