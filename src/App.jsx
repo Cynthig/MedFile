@@ -1,6 +1,6 @@
 // src/App.jsx
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import PatientForm from './components/PatientForm';
 import PatientList from './components/PatientList';
@@ -20,7 +20,7 @@ const App = () => {
 
   return (
     <Router>
-      <div>
+      <header className="header">
         <nav>
           <ul>
             <li>
@@ -41,6 +41,8 @@ const App = () => {
             )}
           </ul>
         </nav>
+      </header>
+      <main>
         <Routes>
           <Route path="/" element={<HomePage onLogin={handleLogin} />} />
           {practitioner && (
@@ -51,7 +53,7 @@ const App = () => {
             </>
           )}
         </Routes>
-      </div>
+      </main>
     </Router>
   );
 };
