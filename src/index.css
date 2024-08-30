@@ -19,15 +19,25 @@ body {
   color: rgba(255, 255, 255, 0.87);
 }
 
+/* App Container */
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Main Content */
+.main-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+/* Header */
 .header {
   background-color: #1a1a1a;
   padding: 1em;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  z-index: 1000; /* Ensure the header is on top of other content */
+  z-index: 1000;
 }
 
 .header nav ul {
@@ -52,10 +62,7 @@ body {
   text-decoration: underline;
 }
 
-main {
-  padding-top: 3em; /* Make sure content doesn't hide behind the fixed header */
-}
-
+/* Typography */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -63,6 +70,7 @@ h1 {
   text-align: center;
 }
 
+/* Container */
 .container {
   background-color: #1a1a1a;
   padding: 2em;
@@ -70,7 +78,7 @@ h1 {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-
+/* Form Elements */
 input {
   border-radius: 8px;
   border: 1px solid #555;
@@ -114,28 +122,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-.app-container {
-  display: flex;
-  height: 100vh;
-}
-
-/* General Layout */
-.dashboard-layout {
-  display: flex;
-}
-
 /* Sidebar */
 .sidebar {
   width: 250px;
@@ -143,6 +129,7 @@ button:focus-visible {
   color: white;
   height: 100vh;
   padding: 20px;
+  overflow-y: auto;
 }
 
 .sidebar .clinic-logo {
@@ -173,30 +160,33 @@ button:focus-visible {
   color: #f39c12; /* Orange */
 }
 
-/* Dashboard Content */
+/* Dashboard */
+.dashboard-layout {
+  width: 100%;
+}
+
 .dashboard-container {
-  flex-grow: 1;
   padding: 20px;
 }
 
 .dashboard-content {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
 }
 
 .dashboard-item {
   background-color: #ecf0f1; /* Light Grey */
   padding: 20px;
   border-radius: 8px;
-  width: 22%;
   text-align: center;
   cursor: pointer;
+  color: #333; /* Darker text for contrast */
 }
 
 .dashboard-item:hover {
   background-color: #bdc3c7;
 }
-
 
 /* Login Page */
 .login-container {
@@ -205,7 +195,6 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   height: 100vh;
- 
 }
 
 .login-form {
@@ -227,7 +216,7 @@ button:focus-visible {
   width: 100%;
   padding: 10px;
   background-color: #2c3e50; /* Navy Blue */
-  color: rgb(13, 38, 54);
+  color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -235,4 +224,46 @@ button:focus-visible {
 
 .login-form button:hover {
   background-color: #f39c12; /* Orange */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+  }
+
+  .dashboard-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Light Mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+  .container {
+    background-color: #f0f0f0;
+    color: #213547;
+  }
+  input {
+    background-color: #ffffff;
+    color: #213547;
+  }
+  .dashboard-item {
+    background-color: #ffffff;
+    color: #213547;
+  }
 }
