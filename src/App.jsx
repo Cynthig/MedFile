@@ -7,6 +7,7 @@ import Records from './components/Records';
 import CreatePatient from './components/CreatePatient';
 import PatientDataHandler from './components/PatientDataHandler';
 import Dashboard from './components/Dashboard';
+import Sidebar from './components/Sidebar';  // Make sure to import Sidebar
 import { initDB } from './services/indexedDBService';
 
 const App = () => {
@@ -25,35 +26,74 @@ const App = () => {
     setPractitioner(practitioner);
   };
 
+  // New component to wrap authenticated routes
+  const AuthenticatedRoute = ({ children }) => {
+    if (!practitioner) {
+      return <Navigate to="/" replace />;
+    }
+    return (
+      <div className="app-container">
+        <Sidebar />
+        <main className="main-content">
+          {children}
+        </main>
+      </div>
+    );
+  };
+
   return (
     <Router>
-      <main>
-        <Routes>
-          <Route path="/" element={<HomePage onLogin={handleLogin} />} />
-          <Route 
-            path="/patients" 
-            element={practitioner ? <PatientList patients={patients} /> : <Navigate to="/" replace />} 
-          />
-          <Route 
-            path="/patient-form" 
-            element={practitioner ? <PatientForm onSave={handleSavePatient} /> : <Navigate to="/" replace />} 
-          />
-          <Route 
-            path="/records" 
-            element={practitioner ? <Records /> : <Navigate to="/" replace />} 
-          />
-          <Route 
-            path="/create-patient" 
-            element={practitioner ? <CreatePatient /> : <Navigate to="/" replace />} 
-          />
-          <Route 
-            path="/patient-data-handler" element={practitioner ? <PatientDataHandler /> : <Navigate to="/" replace />} 
-          />
-           <Route 
-            path="/dashboard" element={practitioner ? <Dashboard /> : <Navigate to="/" replace />} 
-          />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path="/" element={<HomePage onLogin={handleLogin} />} />
+        <Route 
+          path="/patients" 
+          element={
+            <AuthenticatedRoute>
+              <PatientList patients={patients} />
+            </AuthenticatedRoute>
+          } 
+        />
+        <Route 
+          path="/patient-form" 
+          element={
+            <AuthenticatedRoute>
+              <PatientForm onSave={handleSavePatient} />
+            </AuthenticatedRoute>
+          } 
+        />
+        <Route 
+          path="/records" 
+          element={
+            <AuthenticatedRoute>
+              <Records />
+            </AuthenticatedRoute>
+          } 
+        />
+        <Route 
+          path="/create-patient" 
+          element={
+            <AuthenticatedRoute>
+              <CreatePatient />
+            </AuthenticatedRoute>
+          } 
+        />
+        <Route 
+          path="/patient-data-handler" 
+          element={
+            <AuthenticatedRoute>
+              <PatientDataHandler />
+            </AuthenticatedRoute>
+          } 
+        />
+        <Route 
+          path="/dashboard" 
+          element={
+            <AuthenticatedRoute>
+              <Dashboard />
+            </AuthenticatedRoute>
+          } 
+        />
+      </Routes>
     </Router>
   );
 };
