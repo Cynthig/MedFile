@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Patient } from '../models/Patient';
 import { encrypt } from '../utils/crypto';
+import Sidebar from './Sidebar';
 
 const PatientForm = ({ onSave }) => {
   const [formData, setFormData] = useState({
