@@ -23,9 +23,7 @@ const App = () => {
       <header className="header">
         <nav>
           <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
+            
             {practitioner && (
               <>
                 <li>

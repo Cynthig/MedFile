@@ -1,52 +1,37 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Sidebar from './Sidebar';
 import '../index.css';  // Assuming you have a separate CSS file
 
-const HomePage = ({ onLogin }) => {
-  const [practitioner, setPractitioner] = useState({ name: '', surname: '', id: '' });
+const HomePage = () => {
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setPractitioner({ ...practitioner, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onLogin(practitioner);
-  };
-  
-    return (
-      <div className="container">
-        <h1>Welcome to the Patient File System</h1>
-        <form className="login-form" onSubmit={handleSubmit}>
-          <input 
-            type="text" 
-            name="name" 
-            value={practitioner.name} 
-            onChange={handleChange} 
-            placeholder="Name" 
-            required 
-          />
-          <input 
-            type="text" 
-            name="surname" 
-            value={practitioner.surname} 
-            onChange={handleChange} 
-            placeholder="Surname" 
-            required 
-          />
-          <input 
-            type="text" 
-            name="id" 
-            value={practitioner.id} 
-            onChange={handleChange} 
-            placeholder="ID (admin)" 
-            required 
-          />
-          <button type="submit">Login</button>
-        </form>
+  return (
+    <div className="dashboard-layout">
+      <Sidebar />
+      <div className="dashboard-container">
+        <h1>Admin Dashboard</h1>
+        <div className="dashboard-content">
+          <div className="dashboard-item" onClick={() => navigate('/patients')}>
+            <h2>Total Patients</h2>
+            <p>76</p>
+          </div>
+          <div className="dashboard-item" onClick={() => navigate('/appointments')}>
+            <h2>Appointments Today</h2>
+            <p>5</p>
+          </div>
+          <div className="dashboard-item" onClick={() => navigate('/messages')}>
+            <h2>Messages</h2>
+            <p>12</p>
+          </div>
+          <div className="dashboard-item" onClick={() => navigate('/payment-information')}>
+            <h2>Pending Payments</h2>
+            <p>3</p>
+          </div>
+        </div>
       </div>
-    );
+    </div>
+  );
 };
-  
+
 export default HomePage;
