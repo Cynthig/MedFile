@@ -22,15 +22,15 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/messages" activeClassName="active">
+            <NavLink to="/patient-form" activeClassName="active">
               Create patient file
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink to="/settings" activeClassName="active">
               Settings
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink to="/logout" activeClassName="active">
               Logout
