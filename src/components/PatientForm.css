@@ -1,3 +1,6 @@
+label{
+  color: black;
+}
 .patient-form-container {
   max-width: 1200px; /* Adjusted for practical width */
   margin: 0 auto;
@@ -72,7 +75,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .patient-form-container {
-    padding: 10px;
+    padding: 0px;
   }
 
   .form-group {

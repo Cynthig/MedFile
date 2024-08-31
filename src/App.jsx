@@ -10,7 +10,8 @@ import Dashboard from './components/Dashboard';
 import CalendarComponent from './components/Calendar'; // Import Calendar
 import Sidebar from './components/Sidebar';
 import { initDB } from './services/indexedDBService';
-
+import Translate  from './services/Translate';
+import AdminForm from './components/AdminForm';
 const App = () => {
   const [practitioner, setPractitioner] = useState(null);
   const [patients, setPatients] = useState([]);
@@ -82,6 +83,14 @@ const App = () => {
           element={
             <AuthenticatedRoute>
               <Dashboard />
+            </AuthenticatedRoute>
+          } 
+        />
+         <Route 
+          path="/admin" 
+          element={
+            <AuthenticatedRoute>
+              <AdminForm />
             </AuthenticatedRoute>
           } 
         />
