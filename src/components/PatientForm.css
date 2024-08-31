@@ -1,90 +1,122 @@
-.patient-form-container {
-  max-width: 1200px; /* Adjusted for practical width */
+.container {
+  max-width: 900px;
   margin: 0 auto;
-  padding: 20px;
-  background: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.patient-form h1 {
-  margin-bottom: 20px;
+.title {
   text-align: center;
-  font-size: 2em; /* Larger font size for emphasis */
-  color: #333;
+  color: #1E90FF;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 10px;
+  color: #1E90FF;
 }
 
 .form-section {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f7f7f7;
 }
 
 .form-section h2 {
-  border-bottom: 2px solid #007bff;
-  padding-bottom: 10px;
+  color: #1E90FF;
+  font-size: 1.5rem;
   margin-bottom: 20px;
-  font-size: 1.5em; /* Increased font size for better readability */
-  color: #007bff; /* Changed color to match the border */
+  border-bottom: 2px solid #1E90FF;
+  padding-bottom: 5px;
 }
 
+/* Updated Flexbox for Better Desktop Alignment */
 .form-group {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
-.form-group .icon {
-  margin-right: 10px;
-  color: #007bff;
-}
-
-.patient-form input,
-.patient-form select {
+.form-group input, 
+.form-group select, 
+.form-group textarea {
   flex: 1;
-  padding: 12px; /* Increased padding for better touch target */
+  padding: 12px;
+  margin-left: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1em; /* Ensures text is readable */
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
-.date-picker {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+textarea {
+  resize: vertical;
+  height: 100px;
 }
 
-.submit-btn {
-  display: block;
+.submit-button {
   width: 100%;
-  padding: 12px;
-  background: #007bff;
+  padding: 15px;
+  background-color: #1E90FF;
+  color: white;
   border: none;
-  color: #fff;
-  border-radius: 4px;
+  border-radius: 5px;
+  font-size: 1.2rem;
   cursor: pointer;
-  font-size: 1.1em; /* Larger font size for emphasis */
+  transition: background-color 0.3s ease;
 }
 
-.submit-btn:hover {
-  background: #0056b3;
+.submit-button:hover {
+  background-color: #0056b3;
 }
 
 /* Responsive Design */
+@media (min-width: 768px) {
+  .container {
+    max-width: 1200px;
+  }
+
+  .form-group {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .form-group input, 
+  .form-group select, 
+  .form-group textarea {
+    width: calc(48% - 20px);
+    margin-left: 0;
+  }
+}
+
 @media (max-width: 768px) {
-  .patient-form-container {
-    padding: 10px;
+  .container {
+    width: 100%;
+    padding: 20px;
   }
 
   .form-group {
     flex-direction: column;
   }
 
-  .form-group .icon {
-    margin-bottom: 5px;
+  .form-group input, 
+  .form-group select, 
+  .form-group textarea {
+    width: 100%;
   }
 
-  .patient-form input,
-  .patient-form select {
-    font-size: 0.9em; 
+  .submit-button {
+    padding: 12px;
+    font-size: 1rem;
   }
 }
