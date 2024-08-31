@@ -4,7 +4,7 @@ import '../index.css';  // Make sure your CSS handles all the necessary styles
 
 import CreatePatient from './CreatePatient';
 
-const Dashboard = () => {
+const AdminDashboard = () => {
   const navigate = useNavigate();
 
   return (
@@ -12,12 +12,12 @@ const Dashboard = () => {
       <div className="dashboard-container">
         <h1 className="dashboard-title">Admin Dashboard</h1>
         <div className="dashboard-content">
-          <div className="dashboard-item" onClick={() => navigate('/patients')}>
-            <h2>List Patient</h2>
+          <div className="dashboard-item" onClick={() => navigate('/admin')}>
+            <h2>Create Patients</h2>
             <p>76</p>
           </div>
           <div className="dashboard-item" onClick={() => navigate('/messages')}>
-            <h2>Messages</h2>
+            <h2>Notifications</h2>
             <p>12</p>
           </div>
           <div className="dashboard-item" onClick={() => navigate('/patients-visited-today')}>
@@ -31,4 +31,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default AdminDashboard;

@@ -12,6 +12,7 @@ import Sidebar from './components/Sidebar';
 import { initDB } from './services/indexedDBService';
 import Translate  from './services/Translate';
 import AdminForm from './components/AdminForm';
+import AdminDashboard from './components/AdminDashboard';
 const App = () => {
   const [userRole, setUserRole] = useState(null); // Admin or Doctor
   const [patients, setPatients] = useState([]);
@@ -91,6 +92,14 @@ const App = () => {
           element={
             <AuthenticatedRoute>
               <AdminForm />
+            </AuthenticatedRoute>
+          } 
+        />
+        <Route 
+          path="/admindashboard" 
+          element={
+            <AuthenticatedRoute>
+              <AdminDashboard />
             </AuthenticatedRoute>
           } 
         />

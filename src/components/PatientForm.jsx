@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Patient } from '../models/Patient';
 import { encrypt } from '../utils/crypto';
-import { FaUser, FaPhone, FaEnvelope, FaCalendarAlt, FaHospital, FaPills, FaNotesMedical, FaAddressCard, FaUserMd } from 'react-icons/fa';
+import { FaUser, FaPhone, FaEnvelope, FaCalendarAlt, FaHospital, FaPills, FaNotesMedical, FaAddressCard, FaUserMd, FaStethoscope } from 'react-icons/fa';
 import './PatientForm.css';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+
 
 const PatientForm = ({ onSave }) => {
   const [formData, setFormData] = useState({
@@ -31,6 +34,10 @@ const PatientForm = ({ onSave }) => {
     } else {
       setFormData(prevData => ({ ...prevData, [name]: value }));
     }
+  };
+
+  const handleDateChange = (date, fieldName) => {
+    setFormData(prevData => ({ ...prevData, [fieldName]: date }));
   };
 
   const handleSubmit = (e) => {
@@ -173,7 +180,7 @@ const PatientForm = ({ onSave }) => {
         <div className="form-section">
           <h2>Emergency Contacts</h2>
           <h3>Next of Kin</h3>
-          <div className="form-group">
+          {/* <div className="form-group">
             <FaUser className="icon" />
             <input type="text" name="nextOfKin.name" value={formData.nextOfKin.name} onChange={handleChange} placeholder="Name" />
           </div>
@@ -198,7 +205,7 @@ const PatientForm = ({ onSave }) => {
           <div className="form-group">
             <FaPhone className="icon" />
             <input type="tel" name="emergencyContact.contactNumber" value={formData.emergencyContact.contactNumber} onChange={handleChange} placeholder="Contact Number" />
-          </div>
+        </div> */}
         </div>
 
         <button type="submit" className="submit-button">Save Patient Information</button>

@@ -3,7 +3,6 @@ import { FaUser, FaIdCard, FaStethoscope, FaPills, FaHospital, FaPhone, FaUserFr
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './PatientForm.css';
-import PatientForm from './PatientForm';
 
 const AdminForm = ({ onSave }) => {
   const [formData, setFormData] = useState({

@@ -20,10 +20,10 @@ const HomePage = ({ onLogin }) => {
     e.preventDefault();
     if (role === 'admin' && password === 'admin123') {
       onLogin('Administrator');
-      navigate('/dashboard'); // Navigatdfe to the admin dashboard
+      navigate('/admindashboard'); // Navigatdfe to the admin dashboard
     } else if (role === 'doctor' && password === 'doctor123') {
       onLogin('Doctor');
-      navigate('/dashboard/doctor'); // Navigate to the doctor dashboard
+      navigate('/dashboard'); // Navigate to the doctor dashboard
     } else {
       alert('Invalid password');
     }
