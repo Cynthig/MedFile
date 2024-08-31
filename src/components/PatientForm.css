@@ -1,0 +1,90 @@
+.patient-form-container {
+  max-width: 1200px; /* Adjusted for practical width */
+  margin: 0 auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.patient-form h1 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 2em; /* Larger font size for emphasis */
+  color: #333;
+}
+
+.form-section {
+  margin-bottom: 30px;
+}
+
+.form-section h2 {
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 1.5em; /* Increased font size for better readability */
+  color: #007bff; /* Changed color to match the border */
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.form-group .icon {
+  margin-right: 10px;
+  color: #007bff;
+}
+
+.patient-form input,
+.patient-form select {
+  flex: 1;
+  padding: 12px; /* Increased padding for better touch target */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em; /* Ensures text is readable */
+}
+
+.date-picker {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1em; /* Larger font size for emphasis */
+}
+
+.submit-btn:hover {
+  background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .patient-form-container {
+    padding: 10px;
+  }
+
+  .form-group {
+    flex-direction: column;
+  }
+
+  .form-group .icon {
+    margin-bottom: 5px;
+  }
+
+  .patient-form input,
+  .patient-form select {
+    font-size: 0.9em; 
+  }
+}

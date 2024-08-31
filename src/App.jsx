@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import PatientForm from './components/PatientForm';
 import PatientList from './components/PatientList';
 import Records from './components/Records';
-import CreatePatient from './components/CreatePatient';
-import PatientDataHandler from './components/PatientDataHandler';
+import CreatePatient from './components/CreatePatient'; // Assuming this is a different component from PatientForm
 import Dashboard from './components/Dashboard';
-import Sidebar from './components/Sidebar';  // Make sure to import Sidebar
+import Sidebar from './components/Sidebar';
 import { initDB } from './services/indexedDBService';
 
 const App = () => {
@@ -26,7 +25,6 @@ const App = () => {
     setPractitioner(practitioner);
   };
 
-  // New component to wrap authenticated routes
   const AuthenticatedRoute = ({ children }) => {
     if (!practitioner) {
       return <Navigate to="/" replace />;
@@ -74,14 +72,6 @@ const App = () => {
           element={
             <AuthenticatedRoute>
               <CreatePatient />
-            </AuthenticatedRoute>
-          } 
-        />
-        <Route 
-          path="/patient-data-handler" 
-          element={
-            <AuthenticatedRoute>
-              <PatientDataHandler />
             </AuthenticatedRoute>
           } 
         />
