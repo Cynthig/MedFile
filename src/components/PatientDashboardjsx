@@ -1,0 +1,20 @@
+import React, { useState } from 'react';
+import AdminForm from './AdminForm'; // Form for creating a new patient
+import PatientList from './PatientList'; // List of patients
+
+const PatientDashboard = () => {
+  const [patients, setPatients] = useState([]);
+
+  const handleSavePatient = (newPatient) => {
+    setPatients([...patients, newPatient]);
+  };
+
+  return (
+    <div>
+      <AdminForm onSave={handleSavePatient} />
+      <PatientList patients={patients} />
+    </div>
+  );
+};
+
+export default PatientDashboard;

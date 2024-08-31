@@ -20,7 +20,6 @@ const Sidebar = ({ userRole }) => {
     <div>
       <div className={`sidebar ${isOpen ? 'open' : ''}`}>
         <div className="clinic-logo">
-          <h2>Clinic Logo</h2>
         </div>
         <nav className="nav-menu">
           <ul>

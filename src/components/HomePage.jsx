@@ -1,7 +1,9 @@
 import React, { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 import '../index.css';  // Assuming you have a separate CSS file
+import './HomePage.css';
 import Sidebar from './Sidebar';
+
 
 const HomePage = ({ onLogin }) => {
   const [password, setPassword] = useState('');

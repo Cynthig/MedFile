@@ -10,8 +10,8 @@ const PatientList = ({ patients }) => {
             <h1 className="patient-list-title">Patients</h1>
             <div className="patient-list-content">
                 <ul className="patient-list" onClick={() => navigate('/patient-form')}>
-                    {patients.map((patient) => (
-                        <li key={patient.id} className="patient-list-item">
+                    {patients.map((patient, index) => (
+                        <li key={index} className="patient-list-item">
                             {patient.name} {patient.surname}
                         </li>
                     ))}

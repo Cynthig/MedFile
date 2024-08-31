@@ -162,7 +162,7 @@ const AdminForm = ({ onSave }) => {
             />
           </div>
           </div>
-        <button type="submit" className="submit-btn">Save</button>
+        <button type="submit" className="submit-button">Save</button>
       </form>
     </div>
   );

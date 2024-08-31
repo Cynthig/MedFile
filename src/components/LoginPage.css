@@ -1,0 +1,117 @@
+/* Styling for the login page container */
+.login-page-container {
+    display: flex;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Styling for the left section with branding */
+  .login-left-section {
+    flex: 1;
+    background-color: #1E90FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 20px;
+  }
+  
+  /* Branding text */
+  .login-left-section .branding h1 {
+    font-size: 3rem;
+    text-align: center;
+  }
+  
+  /* Styling for the right section with the login form */
+  .login-right-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f7f7f7;
+  }
+  
+  /* Styling for the login form */
+  .login-form {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  /* Form title */
+  .login-form h2 {
+    text-align: center;
+    color: #1E90FF;
+    margin-bottom: 20px;
+  }
+  
+  /* Input wrapper for inputs */
+  .input-wrapper {
+    margin-bottom: 20px;
+  }
+  
+  /* Input styling */
+  .input-wrapper input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  /* Sign up button styling */
+  .sign-up-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2rem;
+    background-color: #1E90FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover effect for the sign-up button */
+  .sign-up-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Styling for the additional sign-in link */
+  .login-form p {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  /* Link styling */
+  .login-form p a {
+    color: #1E90FF;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .login-page-container {
+      flex-direction: column;
+    }
+  
+    .login-left-section {
+      display: none; /* Hide left section on smaller screens */
+    }
+  
+    .login-right-section {
+      flex: 1;
+      padding: 20px;
+    }
+  
+    .login-form {
+      max-width: 100%;
+    }
+  }
+  
