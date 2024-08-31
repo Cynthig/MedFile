@@ -1,11 +1,10 @@
+// src/components/Sidebar.jsx
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import '../index.css';
 
-const Sidebar = () => {
+const Sidebar = ({ userRole }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  console.log('Sidebar rendered, isOpen:', isOpen); // Add this line
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -30,11 +29,13 @@ const Sidebar = () => {
                 Dashboard
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/calendar" activeClassName="active">
-                Calendar
-              </NavLink>
-            </li>
+            {userRole === 'Doctor' && (
+              <li>
+                <NavLink to="/calendar" activeClassName="active">
+                  Calendar
+                </NavLink>
+              </li>
+            )}
             <li>
               <NavLink to="/patients" activeClassName="active">
                 Patient List
