@@ -382,9 +382,12 @@ body, html {
 }
 
 .sidebar .clinic-logo {
-  text-align: center;
-  margin-bottom: 30px;
-}
+  width: 200px; /* Set the width of the div */
+    height: 200px; /* Set the height of the div */
+    background-image: url('assets/33803cc7-ace6-4c30-99b9-35aa9fa6ef52.jpeg'); /* Path to your image */
+    background-size: cover; /* Adjusts the background image size to cover the entire div */
+    background-position: center; /* Centers the image within the div */
+  }
 
 .sidebar .clinic-logo h2 {
   color: white;
@@ -441,9 +444,10 @@ body, html {
 }
 
 .dashboard-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  display: flex; /* Change to flex layout */
+  flex-direction: row; /* Arrange items in a row */
+  gap: 20px; /* Space between items */
+  flex-wrap: wrap; /* Allow items to wrap to the next line if necessary */
 }
 
 .dashboard-item {
@@ -454,7 +458,9 @@ body, html {
   text-align: center;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1 1 220px; /* Make items flexible and set a minimum width */
 }
+
 
 .dashboard-item:hover {
   transform: translateY(-5px);

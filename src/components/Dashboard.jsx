@@ -16,17 +16,9 @@ const Dashboard = () => {
             <h2>Total Patients</h2>
             <p>76</p>
           </div>
-          <div className="dashboard-item" onClick={() => navigate('/appointments')}>
-            <h2>Appointments Today</h2>
-            <p>5</p>
-          </div>
           <div className="dashboard-item" onClick={() => navigate('/messages')}>
             <h2>Messages</h2>
             <p>12</p>
-          </div>
-          <div className="dashboard-item" onClick={() => navigate('/payment-information')}>
-            <h2>Pending Payments</h2>
-            <p>3</p>
           </div>
           <div className="dashboard-item" onClick={() => navigate('/patients-visited-today')}>
             <h2>Patients Visited Today</h2>
@@ -34,7 +26,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <CreatePatient />
+    
     </div>
   );
 };
