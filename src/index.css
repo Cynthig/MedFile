@@ -376,10 +376,29 @@ body, html {
   padding-top: 20px;
   padding-left: 15px;
 }
-
 .sidebar.open {
-  left: 0;
+  left: 0; /* Move the sidebar into view */
 }
+
+
+.sidebar-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: white;
+}
+
+.sidebar-toggle-btn .icon {
+  display: block;
+  font-size: 30px;
+  transition: transform 0.3s ease;
+}
+
+.sidebar.open .sidebar-toggle-btn .icon {
+  transform: rotate(180deg);
+}
+
 
 .sidebar .clinic-logo {
   width: 200px; /* Set the width of the div */
