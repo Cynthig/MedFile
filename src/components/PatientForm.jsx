@@ -1,44 +1,40 @@
 import React, { useState } from 'react';
-import { FaUser, FaIdCard, FaStethoscope, FaPills, FaHospital, FaPhone, FaUserFriends } from 'react-icons/fa';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+import { Patient } from '../models/Patient';
+import { encrypt } from '../utils/crypto';
+import { FaUser, FaPhone, FaEnvelope, FaCalendarAlt, FaHospital, FaPills, FaNotesMedical, FaAddressCard, FaUserMd } from 'react-icons/fa';
 import './PatientForm.css';
 
 const PatientForm = ({ onSave }) => {
   const [formData, setFormData] = useState({
     hospitalId: '',
     currentDiagnosis: '',
-    previousDiagnosis: '',
-    currentMeds: '',
-    previousMeds: '',
-    visits: '',
+    previousDiagnoses: '',
+    currentMedications: '',
+    allergies: '',
+    lastVisitDate: '',
+    nextAppointmentDate: '',
     fileNumber: '',
     nextVisit: new Date(),
   });
 
-  const [formErrors, setFormErrors] = useState({});
-
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleDateChange = (date, field) => {
-    setFormData({ ...formData, [field]: date });
-  };
-
-  const validateForm = () => {
-    const errors = {};
-    if (!formData.id) errors.id = 'ID is required';
-    if (!formData.name) errors.name = 'Name is required';
-    if (!formData.surname) errors.surname = 'Surname is required';
-    // Add more validation as needed
-    setFormErrors(errors);
-    return Object.keys(errors).length === 0;
+    const { name, value } = e.target;
+    if (name.includes('.')) {
+      const [parent, child] = name.split('.');
+      setFormData(prevData => ({
+        ...prevData,
+        [parent]: {
+          ...prevData[parent],
+          [child]: value
+        }
+      }));
+    } else {
+      setFormData(prevData => ({ ...prevData, [name]: value }));
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validateForm()) return;
     const encryptedHospitalId = encrypt(formData.hospitalId);
     const newPatient = new Patient(
       encryptedHospitalId,
@@ -53,21 +49,13 @@ const PatientForm = ({ onSave }) => {
   };
 
   return (
-    <div className="patient-form-container">
-      <h1>Patient File</h1>
+    <div className="container">
+      <h1 className="title"><FaUserMd /> Patient Information</h1>
       <form className="patient-form" onSubmit={handleSubmit}>
-        {/* Personal Information Section */}
         <div className="form-section">
           <div className="form-group">
-            <FaHospital className="icon" />
-            <input
-              type="text"
-              name="hospitalId"
-              value={formData.hospitalId}
-              onChange={handleChange}
-              placeholder="Hospital ID"
-              aria-label="Hospital ID"
-            />
+            <FaCalendarAlt className="icon" />
+            <input type="date" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} placeholder="Date of Birth" required />
           </div>
         </div>
 
@@ -146,7 +134,74 @@ const PatientForm = ({ onSave }) => {
           </div>
         </div>
 
-        <button type="submit" className="submit-btn">Save</button>
+        <div className="form-section">
+          <h2>Medical Information</h2>
+          <div className="form-group">
+            <FaHospital className="icon" />
+            <input type="text" name="hospitalId" value={formData.hospitalId} onChange={handleChange} placeholder="Hospital ID" required />
+          </div>
+          <div className="form-group">
+            <FaNotesMedical className="icon" />
+            <textarea name="currentDiagnosis" value={formData.currentDiagnosis} onChange={handleChange} placeholder="Current Diagnosis" />
+          </div>
+          <div className="form-group">
+            <FaNotesMedical className="icon" />
+            <textarea name="previousDiagnoses" value={formData.previousDiagnoses} onChange={handleChange} placeholder="Previous Diagnoses" />
+          </div>
+          <div className="form-group">
+            <FaPills className="icon" />
+            <textarea name="currentMedications" value={formData.currentMedications} onChange={handleChange} placeholder="Current Medications" />
+          </div>
+          <div className="form-group">
+            <FaPills className="icon" />
+            <textarea name="allergies" value={formData.allergies} onChange={handleChange} placeholder="Allergies" />
+          </div>
+          <div className="form-group">
+            <FaCalendarAlt className="icon" />
+            <input type="date" name="lastVisitDate" value={formData.lastVisitDate} onChange={handleChange} placeholder="Last Visit Date" />
+          </div>
+          <div className="form-group">
+            <FaCalendarAlt className="icon" />
+            <input type="date" name="nextAppointmentDate" value={formData.nextAppointmentDate} onChange={handleChange} placeholder="Next Appointment Date" />
+          </div>
+          <div className="form-group">
+            <FaAddressCard className="icon" />
+            <input type="text" name="fileNumber" value={formData.fileNumber} onChange={handleChange} placeholder="File Number" />
+          </div>
+        </div>
+
+        <div className="form-section">
+          <h2>Emergency Contacts</h2>
+          <h3>Next of Kin</h3>
+          <div className="form-group">
+            <FaUser className="icon" />
+            <input type="text" name="nextOfKin.name" value={formData.nextOfKin.name} onChange={handleChange} placeholder="Name" />
+          </div>
+          <div className="form-group">
+            <FaUser className="icon" />
+            <input type="text" name="nextOfKin.relationship" value={formData.nextOfKin.relationship} onChange={handleChange} placeholder="Relationship" />
+          </div>
+          <div className="form-group">
+            <FaPhone className="icon" />
+            <input type="tel" name="nextOfKin.contactNumber" value={formData.nextOfKin.contactNumber} onChange={handleChange} placeholder="Contact Number" />
+          </div>
+
+          <h3>Emergency Contact</h3>
+          <div className="form-group">
+            <FaUser className="icon" />
+            <input type="text" name="emergencyContact.name" value={formData.emergencyContact.name} onChange={handleChange} placeholder="Name" />
+          </div>
+          <div className="form-group">
+            <FaUser className="icon" />
+            <input type="text" name="emergencyContact.relationship" value={formData.emergencyContact.relationship} onChange={handleChange} placeholder="Relationship" />
+          </div>
+          <div className="form-group">
+            <FaPhone className="icon" />
+            <input type="tel" name="emergencyContact.contactNumber" value={formData.emergencyContact.contactNumber} onChange={handleChange} placeholder="Contact Number" />
+          </div>
+        </div>
+
+        <button type="submit" className="submit-button">Save Patient Information</button>
       </form>
     </div>
   );

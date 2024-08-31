@@ -1,9 +1,9 @@
 // src/components/Sidebar.jsx
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import '../index.css'; 
+import '../index.css';
 
-const Sidebar = () => {
+const Sidebar = ({ userRole }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -12,7 +12,7 @@ const Sidebar = () => {
 
   const handleDrag = (e) => {
     const sidebar = document.querySelector('.sidebar');
-    const newWidth = Math.min(Math.max(e.clientX, 150), 400); 
+    const newWidth = Math.min(Math.max(e.clientX, 150), 400);
     sidebar.style.width = `${newWidth}px`;
   };
 
@@ -29,11 +29,13 @@ const Sidebar = () => {
                 Dashboard
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/calendar" activeClassName="active">
-                Calendar
-              </NavLink>
-            </li>
+            {userRole === 'Doctor' && (
+              <li>
+                <NavLink to="/calendar" activeClassName="active">
+                  Calendar
+                </NavLink>
+              </li>
+            )}
             <li>
               <NavLink to="/patients" activeClassName="active">
                 Patient List
@@ -70,8 +72,8 @@ const Sidebar = () => {
           }}
         />
       </div>
-      <button onClick={toggleSidebar} style={{ position: 'fixed', top: '20px', left: '20px', zIndex: 1002 }}>
-        {isOpen ? 'Close Sidebar' : 'Open Sidebar'}
+      <button className="sidebar-toggle-btn" onClick={toggleSidebar} style={{ position: 'fixed', top: '20px', left: '20px', zIndex: 1002 }}>
+        <span className="icon">{isOpen ? '✖️' : '☰'}</span>
       </button>
     </div>
   );

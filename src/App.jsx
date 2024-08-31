@@ -7,13 +7,13 @@ import PatientList from './components/PatientList';
 import Records from './components/Records';
 import CreatePatient from './components/CreatePatient';
 import Dashboard from './components/Dashboard';
-import CalendarComponent from './components/Calendar'; // Import Calendar
+import CalendarComponent from './components/Calendar';
 import Sidebar from './components/Sidebar';
 import { initDB } from './services/indexedDBService';
 import Translate  from './services/Translate';
 import AdminForm from './components/AdminForm';
 const App = () => {
-  const [practitioner, setPractitioner] = useState(null);
+  const [userRole, setUserRole] = useState(null); // Admin or Doctor
   const [patients, setPatients] = useState([]);
 
   useEffect(() => {
@@ -24,17 +24,17 @@ const App = () => {
     setPatients([...patients, newPatient]);
   };
 
-  const handleLogin = (practitioner) => {
-    setPractitioner(practitioner);
+  const handleLogin = (role) => {
+    setUserRole(role);
   };
 
   const AuthenticatedRoute = ({ children }) => {
-    if (!practitioner) {
+    if (!userRole) {
       return <Navigate to="/" replace />;
     }
     return (
       <div className="app-container">
-        <Sidebar />
+        <Sidebar userRole={userRole} />
         <main className="main-content">
           {children}
         </main>

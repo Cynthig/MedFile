@@ -5,17 +5,25 @@ import Sidebar from './Sidebar';
 
 const HomePage = ({ onLogin }) => {
   const [password, setPassword] = useState('');
+  const [role, setRole] = useState('admin'); // Default role set to admin
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setPassword(e.target.value);
   };
 
+  const handleRoleChange = (e) => {
+    setRole(e.target.value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password === 'admin123') { // Check for the correct password
+    if (role === 'admin' && password === 'admin123') {
       onLogin('Administrator');
-      navigate('/dashboard'); // Navigate to the dashboard after successful login
+      navigate('/dashboard'); // Navigatdfe to the admin dashboard
+    } else if (role === 'doctor' && password === 'doctor123') {
+      onLogin('Doctor');
+      navigate('/dashboard/doctor'); // Navigate to the doctor dashboard
     } else {
       alert('Invalid password');
     }
@@ -25,8 +33,12 @@ const HomePage = ({ onLogin }) => {
     <div className="login-wrapper">
       <div className="login-box">
         <div className="avatar"></div>
-        <h2>Administrator</h2>
+        <h2>Login</h2>
         <form className="login-form" onSubmit={handleSubmit}>
+          <select value={role} onChange={handleRoleChange}>
+            <option value="admin">Admin</option>
+            <option value="doctor">Doctor</option>
+          </select>
           <input
             type="password"
             value={password}
