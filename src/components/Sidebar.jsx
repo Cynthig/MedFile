@@ -1,6 +1,8 @@
+// src/components/Sidebar.jsx
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import '../index.css'; 
+
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -23,8 +25,13 @@ const Sidebar = () => {
         <nav className="nav-menu">
           <ul>
             <li>
-              <NavLink to="/" activeClassName="active">
+              <NavLink to="/dashboard" activeClassName="active">
                 Dashboard
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/calendar" activeClassName="active">
+                Calendar
               </NavLink>
             </li>
             <li>
@@ -33,7 +40,7 @@ const Sidebar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/PatientForm" activeClassName="active">
+              <NavLink to="/patient-form" activeClassName="active">
                 Create patient file
               </NavLink>
             </li>
