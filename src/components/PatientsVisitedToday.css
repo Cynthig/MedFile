@@ -1,0 +1,56 @@
+.patients-today-container {
+    padding: 20px;
+    background-color: white; /* Added white background */
+    border-radius: 8px; /* Optional: Add some rounded corners */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow for depth */
+  }
+  
+  .patients-today-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: darkblue;
+  }
+  
+  .patients-today-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .patients-today-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .patients-today-table th,
+  .patients-today-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color: darkblue;
+    background-color: white; /* Ensure table cells also have a white background */
+  }
+  
+  .patients-today-graphs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .patients-today-insights {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .patients-today-insights h2 {
+    margin-bottom: 10px;
+  }
+  
+  .patients-today-insights p {
+    margin-bottom: 5px;
+    color: darkblue;
+  }
+  

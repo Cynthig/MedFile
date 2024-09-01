@@ -13,6 +13,7 @@ import { initDB } from './services/indexedDBService';
 import Translate  from './services/Translate';
 import AdminForm from './components/AdminForm';
 import AdminDashboard from './components/AdminDashboard';
+import PatientsVisitedToday from './components/PatientsVisitedToday';
 const App = () => {
   const [userRole, setUserRole] = useState(null); // Admin or Doctor
   const [patients, setPatients] = useState([]);
@@ -84,6 +85,14 @@ const App = () => {
           element={
             <AuthenticatedRoute>
               <Dashboard />
+            </AuthenticatedRoute>
+          } 
+        />
+        <Route 
+          path="/patients-visited-today" 
+          element={
+            <AuthenticatedRoute>
+              <PatientsVisitedToday />
             </AuthenticatedRoute>
           } 
         />
