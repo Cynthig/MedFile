@@ -1,8 +1,8 @@
 .patients-today-container {
     padding: 20px;
-    background-color: white; /* Added white background */
-    border-radius: 8px; /* Optional: Add some rounded corners */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow for depth */
+    background-color: white; 
+    border-radius: 8px; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
   }
   
   .patients-today-title {
@@ -28,7 +28,7 @@
     text-align: left;
     border-bottom: 1px solid #ddd;
     color: darkblue;
-    background-color: white; /* Ensure table cells also have a white background */
+    background-color: white; 
   }
   
   .patients-today-graphs {

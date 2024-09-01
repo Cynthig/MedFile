@@ -389,14 +389,6 @@ body, html {
 }
 
 
-.sidebar .clinic-logo {
-    width: 100px; /* Set the width of the div */
-    height: 200px; /* Set the height of the div */
-    background-image: url('assets/33803cc7-ace6-4c30-99b9-35aa9fa6ef52.jpeg'); /* Path to your image */
-    background-size: cover; /* Adjusts the background image size to cover the entire div */
-    background-position: center; /* Centers the image within the div */
-    border-radius: 30%;
-  }
 
 .sidebar .clinic-logo h2 {
   color: white;

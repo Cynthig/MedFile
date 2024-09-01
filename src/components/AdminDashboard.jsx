@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../index.css';  // Make sure your CSS handles all the necessary styles
+import '../index.css';  
 
 const AdminDashboard = () => {
   const navigate = useNavigate();

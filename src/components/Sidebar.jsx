@@ -41,8 +41,13 @@ const Sidebar = ({ userRole }) => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/patient-form" activeClassName="active">
+              <NavLink to="/admin" activeClassName="active">
                 Create patient file
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/patients-visited-today" activeClassName="active">
+                Patients Insights
               </NavLink>
             </li>
             <li>
