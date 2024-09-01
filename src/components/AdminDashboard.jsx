@@ -2,8 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../index.css';  // Make sure your CSS handles all the necessary styles
 
-import CreatePatient from './CreatePatient';
-
 const AdminDashboard = () => {
   const navigate = useNavigate();
 
@@ -16,6 +14,10 @@ const AdminDashboard = () => {
             <h2>Create Patients</h2>
             <p>76</p>
           </div>
+          <div className="dashboard-item" onClick={() => navigate('/patients')}>
+            <h2>Patient List</h2>
+            <p>76</p>
+          </div>
           <div className="dashboard-item" onClick={() => navigate('/messages')}>
             <h2>Notifications</h2>
             <p>12</p>
@@ -26,7 +28,6 @@ const AdminDashboard = () => {
           </div>
         </div>
       </div>
-    
     </div>
   );
 };

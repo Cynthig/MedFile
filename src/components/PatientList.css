@@ -1,90 +1,80 @@
 .patient-list-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  background-color: #f4f6f8;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: auto;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.patient-list-title {
+  font-size: 2rem;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: slideDown 0.5s ease-in-out;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  width: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: box-shadow 0.3s;
+}
+
+.search-bar input:focus {
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+  outline: none;
+}
+
+.patient-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.patient-table th, .patient-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  color: #2c3e50;
+}
+
+.patient-table th {
+  background-color: #3498db;
+  color: #fff;
+  font-weight: bold;
+}
+
+.patient-row:hover {
+  background-color: #ecf0f1;
+  transition: background-color 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
   }
-  
-  .patient-list-title {
-    text-align: center;
-    color: #1E90FF;
-    font-size: 2rem;
-    margin-bottom: 30px;
+  to {
+      opacity: 1;
   }
-  
-  .patient-list-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+}
+
+@keyframes slideDown {
+  from {
+      transform: translateY(-20px);
+      opacity: 0;
   }
-  
-  .patient-list {
-    list-style-type: none;
-    padding: 0;
-    width: 100%;
-    margin-bottom: 20px;
+  to {
+      transform: translateY(0);
+      opacity: 1;
   }
-  
-  .patient-list-item {
-    background-color: #f7f7f7;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background-color 0.3s ease;
-  }
-  
-  .patient-list-item:hover {
-    background-color: #e0f7ff;
-  }
-  
-  .create-patient-button {
-    padding: 15px;
-    background-color: #1E90FF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .create-patient-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Responsive Design */
-  @media (min-width: 768px) {
-    .patient-list-item {
-      font-size: 1.2rem;
-      padding: 20px;
-    }
-  
-    .create-patient-button {
-      font-size: 1.4rem;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .patient-list-container {
-      width: 100%;
-      padding: 20px;
-    }
-  
-    .patient-list-item {
-      font-size: 1rem;
-      padding: 15px;
-    }
-  
-    .create-patient-button {
-      padding: 12px;
-      font-size: 1rem;
-    }
-  }
-  
+}
